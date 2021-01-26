@@ -3,10 +3,10 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2021-01-25 Mon 23:00 -->
+<!-- 2021-01-26 Tue 21:04 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>TMDGL's Home</title>
+<title>使用Emacs与Github建博客</title>
 <meta name="generator" content="Org mode" />
 <style type="text/css">
  <!--/*--><![CDATA[/*><!--*/
@@ -192,7 +192,7 @@
   .org-svg { width: 90%; }
   /*]]>*/-->
 </style>
-<link rel="stylesheet" type="text/css" href="./sources/css/worg.css">
+<link rel="stylesheet" type="text/css" href="../sources/css/worg.css">
 <script type="text/javascript">
 /*
 @licstart  The following is the entire license notice for the
@@ -242,42 +242,274 @@ for the JavaScript code in this tag.
 </head>
 <body>
 <div id="content">
-<h1 class="title">TMDGL's Home
-<br />
-<span class="subtitle">Record Repeat Review</span>
-</h1>
+<h1 class="title">使用Emacs与Github建博客</h1>
 <div id="table-of-contents">
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents">
 <ul>
-<li><a href="#org4add004">1. NEW</a></li>
+<li><a href="#orga893da7">1. Emacs使用ox-publish</a>
+<ul>
+<li><a href="#org8104a48">1.1. 操作平台</a></li>
+<li><a href="#org0a1c546">1.2. Emacs 配置</a></li>
+<li><a href="#org3283f28">1.3. HTML转换</a></li>
+</ul>
+</li>
+<li><a href="#org2fa21d9">2. 博客css美化</a>
+<ul>
+<li><a href="#org27a85ff">2.1. css渲染</a>
+<ul>
+<li><a href="#org8e855f9">2.1.1. css寻找方式</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#org7619f14">3. Org</a>
+<ul>
+<li><a href="#org897a5f6">3.1. Template模板</a></li>
+<li><a href="#org47e3b08">3.2. 图片/表格添加描述</a></li>
+</ul>
+</li>
+<li><a href="#org1e6a448">4. 细节省略</a></li>
+<li><a href="#org9ee5529">5. 注意事项</a></li>
+<li><a href="#org775602a">6. 参考资料</a></li>
 </ul>
 </div>
 </div>
+<p>
+通过emacs ox-publish与github page结合建立简便、极少依赖、高度可定制的
+的静态博客。
+</p>
 
-<div id="outline-container-org4add004" class="outline-2">
-<h2 id="org4add004"><span class="section-number-2">1</span> NEW</h2>
+<div id="outline-container-orga893da7" class="outline-2">
+<h2 id="orga893da7"><span class="section-number-2">1</span> Emacs使用ox-publish</h2>
 <div class="outline-text-2" id="text-1">
+</div>
+<div id="outline-container-org8104a48" class="outline-3">
+<h3 id="org8104a48"><span class="section-number-3">1.1</span> 操作平台</h3>
+<div class="outline-text-3" id="text-1-1">
 <ul class="org-ul">
-<li><p>
-<a href="./article/0001-build-blog-by-emacs-and-github.html">使用Emacs与Github建博客</a>
-</p>
-
-<p>
-通过 emacs ox-publish 与 github page结合建立简便、极少依赖、高度可定
-制的的静态博客。
-</p></li>
+<li>Window Home 10</li>
+<li>GNU Emacs 27.1 (build 1, x86_64-w64-mingw32) of 2020-08-11</li>
+<li>Org mode version 9.3 (Emacs build in)</li>
 </ul>
+</div>
+</div>
+
+<div id="outline-container-org0a1c546" class="outline-3">
+<h3 id="org0a1c546"><span class="section-number-3">1.2</span> Emacs 配置</h3>
+<div class="outline-text-3" id="text-1-2">
+<p>
+参考教程：<a href="https://orgmode.org/worg/org-tutorials/org-publish-html-tutorial.html">Publishing Org-mode files to HTML</a>
+</p>
+<div class="org-src-container">
+<pre class="src src-lisp">;; plug request(but emacs default run ox-publish)
+(require 'ox-publish)
+
+;; publish configure
+(setq org-publish-project-alist
+      '(
+
+	;; org notes export to html
+	("org-notes" 	                
+	 :base-directory "~/blog/org"
+	 :base-extension "org"
+	 :publishing-directory "~/blog/"
+	 :recursive t
+	 :publishing-function org-html-publish-to-html
+	 :auto-preamble t
+	 )
+
+	;; org static file
+	("org-static"                   
+	 :base-directory "~/blog/org"
+	 :base-extension "css\\|js\\|png\\|jpg\\|gif\\|ogg\\|swf"
+	 :publishing-directory "~/blog"
+	 :recursive t
+	 :publishing-function org-publish-attachment
+	 )
+
+	("org-blog" :components ("org-notes" "org-static"))))
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org3283f28" class="outline-3">
+<h3 id="org3283f28"><span class="section-number-3">1.3</span> HTML转换</h3>
+<div class="outline-text-3" id="text-1-3">
+<p>
+在org源码目录下（本文为 <i>~/blog/org</i> ）建立一个index.org文件。任意输入
+一些测试内容然后运行
+</p>
+<pre class="example">
+M-x org-publish-project [Enter] org-blog [Enter]
+</pre>
+
 
 <p>
-<a href="https://tmdgl.github.io/TMDGL/index.html">Home</a>  
+中文可能会在minibuffer出现提示
+</p>
+<pre class="example">
+Select system code(default utf-8)
+</pre>
+
+<p>
+直接回车选中utf-8.
+</p>
+
+<p>
+打开emacs publish的文件夹（本文为 <i>~/blog</i>  ）打开index.html文件即可。
 </p>
 </div>
 </div>
 </div>
+
+<div id="outline-container-org2fa21d9" class="outline-2">
+<h2 id="org2fa21d9"><span class="section-number-2">2</span> 博客css美化</h2>
+<div class="outline-text-2" id="text-2">
+</div>
+<div id="outline-container-org27a85ff" class="outline-3">
+<h3 id="org27a85ff"><span class="section-number-3">2.1</span> css渲染</h3>
+<div class="outline-text-3" id="text-2-1">
+<p>
+org文件中添加
+</p>
+<pre class="example">
+#+HTML_HEAD: &lt;link rel="stylesheet" type="text/css" href="_your css path_"&gt;
+</pre>
+
+<p>
+此博客css文件为<a href="https://orgmode.org/">org官网</a>的css渲染文件worg.css
+</p>
+</div>
+
+<div id="outline-container-org8e855f9" class="outline-4">
+<h4 id="org8e855f9"><span class="section-number-4">2.1.1</span> css寻找方式</h4>
+<div class="outline-text-4" id="text-2-1-1">
+<p>
+笔者是在<a href="https://orgmode.org/worg/org-tutorials/org-publish-html-tutorial.html">Publishing Org-mode files to HTML</a>中直接下载页面整个文件，可以
+得到一个html文件和文件夹，打开文件夹比重就包含worg.css文件。此文件为主
+要的渲染文件。其他的css文件作用不明，js文件应该是提供html数学公式显示。
+</p>
+
+<p>
+也可在其他的相似的org构建的博客去寻找，参考资料中给出了几个可以参考的
+链接。此外，<a href="https://orgmode.org/">Org官网</a>也有很多博客可以参考。
+</p>
+
+<p>
+如果你不嫌麻烦，也可手撸css文件。可在 <a href="https://orgmode.org/manual/index.html">The Org Manual</a> 查看至于html
+export出的对象和属性(应该是叫这个，html不了解)。
+</p>
+</div>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org7619f14" class="outline-2">
+<h2 id="org7619f14"><span class="section-number-2">3</span> Org</h2>
+<div class="outline-text-2" id="text-3">
+</div>
+<div id="outline-container-org897a5f6" class="outline-3">
+<h3 id="org897a5f6"><span class="section-number-3">3.1</span> Template模板</h3>
+<div class="outline-text-3" id="text-3-1">
+<p>
+Org中的模板后缀名不一定必须为org，可以避免ox-publish将模板文件导出。其
+余部分<a href="https://orgmode.org/worg/org-tutorials/org-publish-html-tutorial.html">Publishing Org-mode files to HTML</a>中存在详细介绍。
+</p>
+</div>
+</div>
+
+<div id="outline-container-org47e3b08" class="outline-3">
+<h3 id="org47e3b08"><span class="section-number-3">3.2</span> 图片/表格添加描述</h3>
+<div class="outline-text-3" id="text-3-2">
+<p>
+参考 <a href="https://orgmode.org/manual/Images.html#Images">Org Manual 12.7 Images</a> 此处可用file协议直接显示图，添加了描述。
+</p>
+<div class="org-src-container">
+<pre class="src src-org">#+CAPTION: This is the caption for the next figure link (or table)
+#+NAME:   fig:SED-HR4049
+[[./img/a.jpg]] 
+
+# Just for show, No picture here.
+</pre>
+</div>
+
+<p>
+<b>NOTE</b> :在emacs中预览图片需开启iimage-mode。
+</p>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org1e6a448" class="outline-2">
+<h2 id="org1e6a448"><span class="section-number-2">4</span> 细节省略</h2>
+<div class="outline-text-2" id="text-4">
+<p>
+因未使用其他功能且网上相应教程极多，本文有大量细节的省略。主要罗列如下
+</p>
+<ul class="org-ul">
+<li>Github Page部署</li>
+<li>Org js文件嵌入</li>
+<li>Sitemap</li>
+<li>扩展org-info.js</li>
+<li>展示代码高亮</li>
+<li>SEO以及评论功能</li>
+<li>&#x2026;.</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-org9ee5529" class="outline-2">
+<h2 id="org9ee5529"><span class="section-number-2">5</span> 注意事项</h2>
+<div class="outline-text-2" id="text-5">
+<ul class="org-ul">
+<li>文件引用一定要用相对路径。否则部署到github会会访问失败。</li>
+<li>"_" 会导致下标显示，解决方法 <sup><a id="fnr.1" class="footref" href="#fn.1">1</a></sup></li>
+
+<li>插入图片直接快捷键C-c C-l的情况下如果不指明具体协议。默认为file文件
+协议。此时导出为html时不会直接显示图片。</li>
+<li>Github静态资源似乎国内不能直接访问，图片不能加载。</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-org775602a" class="outline-2">
+<h2 id="org775602a"><span class="section-number-2">6</span> 参考资料</h2>
+<div class="outline-text-2" id="text-6">
+<ul class="org-ul">
+<li><a href="https://orgmode.org/worg/org-tutorials/org-publish-html-tutorial.html">Publishing Org-mode files to HTML &#x2013; Sebastian Rose</a>
+主要参考</li>
+
+<li></li>
+
+
+<li><a href="https://orgmode.org/manual/index.html">The Org Manual</a>
+主要参考</li>
+
+<li>参考博客
+<ul class="org-ul">
+<li><a href="https://github.com/loveminimal/site">https://github.com/loveminimal/site</a></li>
+<li><a href="https://lepisma.xyz/">https://lepisma.xyz/</a></li>
+<li><a href="https://emacs-china.org/t/org-mode-ox-publish/13869">https://emacs-china.org/t/org-mode-ox-publish/13869</a></li>
+<li><a href="https://emacs-china.org/search?q=org%20blog%20%E9%9D%99%E6%80%81">https://emacs-china.org/search?q=org%20blog%20%E9%9D%99%E6%80%81</a></li>
+</ul></li>
+</ul>
+</div>
+</div>
+<div id="footnotes">
+<h2 class="footnotes">Footnotes: </h2>
+<div id="text-footnotes">
+
+<div class="footdef"><sup><a id="fn.1" class="footnum" href="#fnr.1">1</a></sup> <div class="footpara"><p class="footpara">
+<a href="https://cloud.tencent.com/developer/ask/118655">如何在Emacs Org-Mode导出中禁用下划线到下标?</a>
+</p></div></div>
+
+
+</div>
+</div></div>
 <div id="postamble" class="status">
-<p class="date">Date: 2020-Janu-25 Mon.</p>
-<p class="date">Created: 2021-01-25 Mon 23:00</p>
+<p class="date">Created: 2021-01-26 Tue 21:04</p>
 <p class="validation"><a href="http://validator.w3.org/check?uri=referer">Validate</a></p>
 </div>
 </body>

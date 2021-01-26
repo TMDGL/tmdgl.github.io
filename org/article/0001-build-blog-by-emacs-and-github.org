@@ -1,0 +1,131 @@
+#+title: 使用Emacs与Github建博客
+
+#+HTML_HEAD: <link rel="stylesheet" type="text/css" href="../sources/css/worg.css">
+#+SETUPFILE: ../sources/org-template/common.template
+
+通过emacs ox-publish与github page结合建立简便、极少依赖、高度可定制的
+的静态博客。
+
+* Emacs使用ox-publish
+** 操作平台
+- Window Home 10
+- GNU Emacs 27.1 (build 1, x86_64-w64-mingw32) of 2020-08-11
+- Org mode version 9.3 (Emacs build in)
+
+** Emacs 配置
+
+参考教程：[[https://orgmode.org/worg/org-tutorials/org-publish-html-tutorial.html][Publishing Org-mode files to HTML]]
+#+begin_src lisp
+  ;; plug request(but emacs default run ox-publish)
+  (require 'ox-publish)
+
+  ;; publish configure
+  (setq org-publish-project-alist
+        '(
+
+          ;; org notes export to html
+          ("org-notes" 	                
+           :base-directory "~/blog/org"
+           :base-extension "org"
+           :publishing-directory "~/blog/"
+           :recursive t
+           :publishing-function org-html-publish-to-html
+           :auto-preamble t
+           )
+
+          ;; org static file
+          ("org-static"                   
+           :base-directory "~/blog/org"
+           :base-extension "css\\|js\\|png\\|jpg\\|gif\\|ogg\\|swf"
+           :publishing-directory "~/blog"
+           :recursive t
+           :publishing-function org-publish-attachment
+           )
+
+          ("org-blog" :components ("org-notes" "org-static"))))
+#+end_src
+
+** HTML转换
+
+在org源码目录下（本文为 /~/blog/org/ ）建立一个index.org文件。任意输入
+一些测试内容然后运行
+: M-x org-publish-project [Enter] org-blog [Enter]
+
+中文可能会在minibuffer出现提示
+: Select system code(default utf-8)
+直接回车选中utf-8.
+
+打开emacs publish的文件夹（本文为 /~/blog/  ）打开index.html文件即可。
+
+* 博客css美化
+** css渲染
+org文件中添加
+: #+HTML_HEAD: <link rel="stylesheet" type="text/css" href="_your css path_">
+此博客css文件为[[https://orgmode.org/][org官网]]的css渲染文件worg.css
+
+*** css寻找方式
+笔者是在[[https://orgmode.org/worg/org-tutorials/org-publish-html-tutorial.html][Publishing Org-mode files to HTML]]中直接下载页面整个文件，可以
+得到一个html文件和文件夹，打开文件夹比重就包含worg.css文件。此文件为主
+要的渲染文件。其他的css文件作用不明，js文件应该是提供html数学公式显示。
+
+也可在其他的相似的org构建的博客去寻找，参考资料中给出了几个可以参考的
+链接。此外，[[https://orgmode.org/][Org官网]]也有很多博客可以参考。
+
+如果你不嫌麻烦，也可手撸css文件。可在 [[https://orgmode.org/manual/index.html][The Org Manual]] 查看至于html
+export出的对象和属性(应该是叫这个，html不了解)。
+
+* Org
+
+** Template模板
+Org中的模板后缀名不一定必须为org，可以避免ox-publish将模板文件导出。其
+余部分[[https://orgmode.org/worg/org-tutorials/org-publish-html-tutorial.html][Publishing Org-mode files to HTML]]中存在详细介绍。
+
+** 图片/表格添加描述
+参考 [[https://orgmode.org/manual/Images.html#Images][Org Manual 12.7 Images]] 此处可用file协议直接显示图，添加了描述。
+#+begin_src org
+  ,#+CAPTION: This is the caption for the next figure link (or table)
+  ,#+NAME:   fig:SED-HR4049
+  [[./img/a.jpg]] 
+
+  # Just for show, No picture here.
+#+end_src
+
+*NOTE* :在emacs中预览图片需开启iimage-mode。
+
+* 细节省略
+
+因未使用其他功能且网上相应教程极多，本文有大量细节的省略。主要罗列如下
+- Github Page部署
+- Org js文件嵌入
+- Sitemap
+- 扩展org-info.js
+- 展示代码高亮
+- SEO以及评论功能
+- ....
+
+* 注意事项
+
+- 文件引用一定要用相对路径。否则部署到github会会访问失败。
+- "_" 会导致下标显示，解决方法 [fn:1]
+
+- 插入图片直接快捷键C-c C-l的情况下如果不指明具体协议。默认为file文件
+  协议。此时导出为html时不会直接显示图片。
+- Github静态资源似乎国内不能直接访问，图片不能加载。
+  
+* 参考资料
+- [[https://orgmode.org/worg/org-tutorials/org-publish-html-tutorial.html][Publishing Org-mode files to HTML -- Sebastian Rose]]
+  主要参考
+  
+- 
+
+- [[https://orgmode.org/manual/index.html][The Org Manual]]
+  主要参考
+
+- 参考博客
+  - [[https://github.com/loveminimal/site]]
+  - https://lepisma.xyz/
+  - https://emacs-china.org/t/org-mode-ox-publish/13869
+  - https://emacs-china.org/search?q=org%20blog%20%E9%9D%99%E6%80%81
+
+* Footnotes
+[fn:1]  [[https://cloud.tencent.com/developer/ask/118655][如何在Emacs Org-Mode导出中禁用下划线到下标?]]

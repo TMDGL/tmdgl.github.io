@@ -1,2 +1,2 @@
-* TM's Blog
-Record life.
+* TM's Blog Repository
+Published at https://tmdgl.github.io/TMDGL/
