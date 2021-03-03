@@ -45,6 +45,28 @@
           ("org-blog" :components ("org-notes" "org-static"))))
 #+end_src
 
+** 博客目录
+: $ tree	   
+: .	   
+: |-- article
+: |   `-- 0001-build-blog-by-emacs-and-github.html
+: |-- index.html
+: |-- org	   	# org source file 
+: |   |-- article	       	# article
+: |   |   |-- 0001-build-blog-by-emacs-and-github.org  # article file
+: |   |-- index.org    	# index fi.e	       
+: |   |-- site   	       	# some site file such as sitemap
+: |   `-- sources	      	# source file directory
+: |       |-- css	        # css file 
+: |       |   `-- worg.css
+: |       `-- org-template
+: |           `-- common.template
+: |-- README.org		# github README file
+: `-- sources
+:     `-- css
+:         `-- worg.css
+:
+: 9 directories, 9 files
 ** HTML转换
 
 在org源码目录下（本文为 /~/blog/org/ ）建立一个index.org文件。任意输入
@@ -101,7 +123,7 @@ Org中的模板后缀名不一定必须为org，可以避免ox-publish将模板�
 - 扩展org-info.js
 - 展示代码高亮
 - SEO以及评论功能
-- ....
+- 其它
 
 * 注意事项
 
@@ -113,18 +135,17 @@ Org中的模板后缀名不一定必须为org，可以避免ox-publish将模板�
 - Github静态资源似乎国内不能直接访问，图片不能加载。
   
 * 参考资料
-- [[https://orgmode.org/worg/org-tutorials/org-publish-html-tutorial.html][Publishing Org-mode files to HTML -- Sebastian Rose]]
-  主要参考
-  
-- 
+- [[https://orgmode.org/worg/org-tutorials/org-publish-html-tutorial.html][Publishing Org-mode files to HTML -- Sebastian Rose]] 主要参考
 
-- [[https://orgmode.org/manual/index.html][The Org Manual]]
-  主要参考
+- [[https://orgmode.org/manual/index.html][The Org Manual]] 主要参考
 
 - 参考博客
   - [[https://github.com/loveminimal/site]]
+    
   - https://lepisma.xyz/
+    
   - https://emacs-china.org/t/org-mode-ox-publish/13869
+    
   - https://emacs-china.org/search?q=org%20blog%20%E9%9D%99%E6%80%81
 
 * Footnotes
