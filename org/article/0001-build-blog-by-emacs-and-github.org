@@ -79,6 +79,7 @@
 
 打开emacs publish的文件夹（本文为 /~/blog/  ）打开index.html文件即可。
 
+
 * 博客css美化
 ** css渲染
 org文件中添加
@@ -95,6 +96,7 @@ org文件中添加
 
 如果你不嫌麻烦，也可手撸css文件。可在 [[https://orgmode.org/manual/index.html][The Org Manual]] 查看至于html
 export出的对象和属性(应该是叫这个，html不了解)。
+
 
 * Org
 
@@ -114,6 +116,7 @@ Org中的模板后缀名不一定必须为org，可以避免ox-publish将模板�
 
 *NOTE* :在emacs中预览图片需开启iimage-mode。
 
+
 * 细节省略
 
 因未使用其他功能且网上相应教程极多，本文有大量细节的省略。主要罗列如下
@@ -125,6 +128,7 @@ Org中的模板后缀名不一定必须为org，可以避免ox-publish将模板�
 - SEO以及评论功能
 - 其它
 
+
 * 注意事项
 
 - 文件引用一定要用相对路径。否则部署到github会会访问失败。
@@ -132,7 +136,16 @@ Org中的模板后缀名不一定必须为org，可以避免ox-publish将模板�
 
 - 插入图片直接快捷键C-c C-l的情况下如果不指明具体协议。默认为file文件
   协议。此时导出为html时不会直接显示图片。
+  
 - Github静态资源似乎国内不能直接访问，图片不能加载。
+
+- 文件保存必须为utf-8格式
+
+  配置文件中加入
+  #+begin_src emacs-lisp
+    (setq-default buffer-file-coding-system 'utf-8)	
+  #+end_src
+
   
 * 参考资料
 - [[https://orgmode.org/worg/org-tutorials/org-publish-html-tutorial.html][Publishing Org-mode files to HTML -- Sebastian Rose]] 主要参考
@@ -147,6 +160,7 @@ Org中的模板后缀名不一定必须为org，可以避免ox-publish将模板�
   - https://emacs-china.org/t/org-mode-ox-publish/13869
     
   - https://emacs-china.org/search?q=org%20blog%20%E9%9D%99%E6%80%81
+
 
 * Footnotes
 [fn:1]  [[https://cloud.tencent.com/developer/ask/118655][如何在Emacs Org-Mode导出中禁用下划线到下标?]]

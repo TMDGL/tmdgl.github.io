@@ -1,10 +1,13 @@
 #+TITLE: TMDGL's Home
-#+date: 2020-Janu-25 Mon.
 #+SUBTITLE: Record Repeat Review
 #+HTML_HEAD: <link rel="stylesheet" type="text/css" href="./sources/css/worg.css">
 #+SETUPFILE: ./sources/org-template/common.template
 
 * New
+- [[./article/0002-reply.org][项目答辩注意事项]]
+
+  项目答辩PPT制作，总结报告编写的一些需要注意的事项。
+  
 - [[./article/0001-build-blog-by-emacs-and-github.org][使用Emacs与Github建博客]]
 
   通过 emacs ox-publish 与 github page结合建立简便、极少依赖、高度可定
@@ -12,5 +15,4 @@
 
 * Update
 - [[./article/0001-build-blog-by-emacs-and-github.org][使用Emacs与Github建博客]]
-  
-[[https://tmdgl.github.io/index.html][Home]]  
+  非UTF-8乱码修改
