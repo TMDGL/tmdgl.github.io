@@ -3,13 +3,13 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2021-03-09 Tue 22:45 -->
+<!-- 2023-07-08 Sat 21:10 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>项目答辩注意事项</title>
-<meta name="generator" content="Org mode" />
-<style type="text/css">
- <!--/*--><![CDATA[/*><!--*/
+<meta name="generator" content="Org Mode" />
+<style>
+  #content { max-width: 60em; margin: auto; }
   .title  { text-align: center;
              margin-bottom: .2em; }
   .subtitle { text-align: center;
@@ -30,8 +30,9 @@
   #postamble p, #preamble p { font-size: 90%; margin: .2em; }
   p.verse { margin-left: 3%; }
   pre {
-    border: 1px solid #ccc;
-    box-shadow: 3px 3px 3px #eee;
+    border: 1px solid #e6e6e6;
+    border-radius: 3px;
+    background-color: #f2f2f2;
     padding: 8pt;
     font-family: monospace;
     overflow: auto;
@@ -39,22 +40,22 @@
   }
   pre.src {
     position: relative;
-    overflow: visible;
-    padding-top: 1.2em;
+    overflow: auto;
   }
   pre.src:before {
     display: none;
     position: absolute;
-    background-color: white;
-    top: -10px;
-    right: 10px;
+    top: -8px;
+    right: 12px;
     padding: 3px;
-    border: 1px solid black;
+    color: #555;
+    background-color: #f2f2f299;
   }
-  pre.src:hover:before { display: inline;}
+  pre.src:hover:before { display: inline; margin-top: 14px;}
   /* Languages per Org manual */
   pre.src-asymptote:before { content: 'Asymptote'; }
   pre.src-awk:before { content: 'Awk'; }
+  pre.src-authinfo::before { content: 'Authinfo'; }
   pre.src-C:before { content: 'C'; }
   /* pre.src-C++ doesn't work in CSS */
   pre.src-clojure:before { content: 'Clojure'; }
@@ -189,95 +190,48 @@
     { font-size: 10px; font-weight: bold; white-space: nowrap; }
   .org-info-js_search-highlight
     { background-color: #ffff00; color: #000000; font-weight: bold; }
-  .org-svg { width: 90%; }
-  /*]]>*/-->
+  .org-svg { }
 </style>
 <link rel="stylesheet" type="text/css" href="../sources/css/worg.css">
-<script type="text/javascript">
-/*
-@licstart  The following is the entire license notice for the
-JavaScript code in this tag.
-
-Copyright (C) 2012-2020 Free Software Foundation, Inc.
-
-The JavaScript code in this tag is free software: you can
-redistribute it and/or modify it under the terms of the GNU
-General Public License (GNU GPL) as published by the Free Software
-Foundation, either version 3 of the License, or (at your option)
-any later version.  The code is distributed WITHOUT ANY WARRANTY;
-without even the implied warranty of MERCHANTABILITY or FITNESS
-FOR A PARTICULAR PURPOSE.  See the GNU GPL for more details.
-
-As additional permission under GNU GPL version 3 section 7, you
-may distribute non-source (e.g., minimized or compacted) forms of
-that code without the copy of the GNU GPL normally required by
-section 4, provided you include this license notice and a URL
-through which recipients can access the Corresponding Source.
-
-
-@licend  The above is the entire license notice
-for the JavaScript code in this tag.
-*/
-<!--/*--><![CDATA[/*><!--*/
- function CodeHighlightOn(elem, id)
- {
-   var target = document.getElementById(id);
-   if(null != target) {
-     elem.cacheClassElem = elem.className;
-     elem.cacheClassTarget = target.className;
-     target.className = "code-highlighted";
-     elem.className   = "code-highlighted";
-   }
- }
- function CodeHighlightOff(elem, id)
- {
-   var target = document.getElementById(id);
-   if(elem.cacheClassElem)
-     elem.className = elem.cacheClassElem;
-   if(elem.cacheClassTarget)
-     target.className = elem.cacheClassTarget;
- }
-/*]]>*///-->
-</script>
 </head>
 <body>
-<div id="content">
+<div id="content" class="content">
 <h1 class="title">项目答辩注意事项</h1>
-<div id="table-of-contents">
+<div id="table-of-contents" role="doc-toc">
 <h2>Table of Contents</h2>
-<div id="text-table-of-contents">
+<div id="text-table-of-contents" role="doc-toc">
 <ul>
-<li><a href="#org58c3dba">1. PPT</a></li>
-<li><a href="#org10c742b">2. 总结报告</a>
+<li><a href="#org9df52fd">1. PPT</a></li>
+<li><a href="#orgd848c86">2. 总结报告</a>
 <ul>
-<li><a href="#org9bb984c">2.1. 硬件</a>
+<li><a href="#orga41b925">2.1. 硬件</a>
 <ul>
-<li><a href="#orgc796d9f">2.1.1. 方案引出</a></li>
-<li><a href="#org82a6281">2.1.2. 方案可行性分析</a></li>
-<li><a href="#orgf302db9">2.1.3. 器件连接关系</a></li>
-<li><a href="#orgeb4bfcb">2.1.4. 参数的具体计算</a></li>
+<li><a href="#org8e84364">2.1.1. 方案引出</a></li>
+<li><a href="#orgdc7b321">2.1.2. 方案可行性分析</a></li>
+<li><a href="#org385ccb6">2.1.3. 器件连接关系</a></li>
+<li><a href="#orgae60d1e">2.1.4. 参数的具体计算</a></li>
 </ul>
 </li>
-<li><a href="#orgbce184e">2.2. 软件</a>
+<li><a href="#org99ec56d">2.2. 软件</a>
 <ul>
-<li><a href="#org591c02a">2.2.1. 思路体现</a></li>
-<li><a href="#orgc62c9b3">2.2.2. 流程图</a></li>
-<li><a href="#org850bdb4">2.2.3. 中断</a></li>
+<li><a href="#org9dbf840">2.2.1. 思路体现</a></li>
+<li><a href="#org73e0c9d">2.2.2. 流程图</a></li>
+<li><a href="#org476fc81">2.2.3. 中断</a></li>
 </ul>
 </li>
-<li><a href="#org9c8c990">2.3. 调试</a>
+<li><a href="#orgd6a5ca1">2.3. 调试</a>
 <ul>
-<li><a href="#org1a2e04e">2.3.1. 效果对比</a></li>
-<li><a href="#org7b786c0">2.3.2. 调试环境</a></li>
-<li><a href="#org7698e62">2.3.3. 数据偏差大</a></li>
+<li><a href="#org68d1d0c">2.3.1. 效果对比</a></li>
+<li><a href="#org64815bc">2.3.2. 调试环境</a></li>
+<li><a href="#org2ead1bd">2.3.3. 数据偏差大</a></li>
 </ul>
 </li>
-<li><a href="#org5c2f106">2.4. 其他</a>
+<li><a href="#org8b44b6a">2.4. 其他</a>
 <ul>
-<li><a href="#org8b3bc66">2.4.1. 模块或子单元命名</a></li>
-<li><a href="#org3c38f88">2.4.2. 图与表的名字</a></li>
-<li><a href="#orga475f67">2.4.3. 图片展示</a></li>
-<li><a href="#org8582e06">2.4.4. 图的叙述性文字</a></li>
+<li><a href="#org8425653">2.4.1. 模块或子单元命名</a></li>
+<li><a href="#orgf5aa381">2.4.2. 图与表的名字</a></li>
+<li><a href="#orgf23fe3d">2.4.3. 图片展示</a></li>
+<li><a href="#org2ac744c">2.4.4. 图的叙述性文字</a></li>
 </ul>
 </li>
 </ul>
@@ -286,8 +240,8 @@ for the JavaScript code in this tag.
 </div>
 </div>
 
-<div id="outline-container-org58c3dba" class="outline-2">
-<h2 id="org58c3dba"><span class="section-number-2">1</span> PPT</h2>
+<div id="outline-container-org9df52fd" class="outline-2">
+<h2 id="org9df52fd"><span class="section-number-2">1.</span> PPT</h2>
 <div class="outline-text-2" id="text-1">
 <ul class="org-ul">
 <li>注意体现项目的大框架</li>
@@ -306,16 +260,16 @@ for the JavaScript code in this tag.
 </div>
 
 
-<div id="outline-container-org10c742b" class="outline-2">
-<h2 id="org10c742b"><span class="section-number-2">2</span> 总结报告</h2>
+<div id="outline-container-orgd848c86" class="outline-2">
+<h2 id="orgd848c86"><span class="section-number-2">2.</span> 总结报告</h2>
 <div class="outline-text-2" id="text-2">
 </div>
-<div id="outline-container-org9bb984c" class="outline-3">
-<h3 id="org9bb984c"><span class="section-number-3">2.1</span> 硬件</h3>
+<div id="outline-container-orga41b925" class="outline-3">
+<h3 id="orga41b925"><span class="section-number-3">2.1.</span> 硬件</h3>
 <div class="outline-text-3" id="text-2-1">
 </div>
-<div id="outline-container-orgc796d9f" class="outline-4">
-<h4 id="orgc796d9f"><span class="section-number-4">2.1.1</span> 方案引出</h4>
+<div id="outline-container-org8e84364" class="outline-4">
+<h4 id="org8e84364"><span class="section-number-4">2.1.1.</span> 方案引出</h4>
 <div class="outline-text-4" id="text-2-1-1">
 <p>
 需要有具体的需求（市场需求）来导出方案。比如需要单片机与人的交互，所以
@@ -324,8 +278,8 @@ for the JavaScript code in this tag.
 </div>
 </div>
 
-<div id="outline-container-org82a6281" class="outline-4">
-<h4 id="org82a6281"><span class="section-number-4">2.1.2</span> 方案可行性分析</h4>
+<div id="outline-container-orgdc7b321" class="outline-4">
+<h4 id="orgdc7b321"><span class="section-number-4">2.1.2.</span> 方案可行性分析</h4>
 <div class="outline-text-4" id="text-2-1-2">
 <p>
 可行性分析主要有市场的购买的难易程度、方案设计的难易、设计人员的能力、
@@ -334,8 +288,8 @@ for the JavaScript code in this tag.
 </div>
 </div>
 
-<div id="outline-container-orgf302db9" class="outline-4">
-<h4 id="orgf302db9"><span class="section-number-4">2.1.3</span> 器件连接关系</h4>
+<div id="outline-container-org385ccb6" class="outline-4">
+<h4 id="org385ccb6"><span class="section-number-4">2.1.3.</span> 器件连接关系</h4>
 <div class="outline-text-4" id="text-2-1-3">
 <p>
 一定要凸显出链接关系，必须具体到引脚的对应连接，如果是大框架可以表示各
@@ -344,8 +298,8 @@ for the JavaScript code in this tag.
 </div>
 </div>
 
-<div id="outline-container-orgeb4bfcb" class="outline-4">
-<h4 id="orgeb4bfcb"><span class="section-number-4">2.1.4</span> 参数的具体计算</h4>
+<div id="outline-container-orgae60d1e" class="outline-4">
+<h4 id="orgae60d1e"><span class="section-number-4">2.1.4.</span> 参数的具体计算</h4>
 <div class="outline-text-4" id="text-2-1-4">
 <p>
 每个电阻的取值、各个敏感的驱动电流（比如电机的驱动电流）、三极管的参数
@@ -355,12 +309,12 @@ for the JavaScript code in this tag.
 </div>
 </div>
 
-<div id="outline-container-orgbce184e" class="outline-3">
-<h3 id="orgbce184e"><span class="section-number-3">2.2</span> 软件</h3>
+<div id="outline-container-org99ec56d" class="outline-3">
+<h3 id="org99ec56d"><span class="section-number-3">2.2.</span> 软件</h3>
 <div class="outline-text-3" id="text-2-2">
 </div>
-<div id="outline-container-org591c02a" class="outline-4">
-<h4 id="org591c02a"><span class="section-number-4">2.2.1</span> 思路体现</h4>
+<div id="outline-container-org9dbf840" class="outline-4">
+<h4 id="org9dbf840"><span class="section-number-4">2.2.1.</span> 思路体现</h4>
 <div class="outline-text-4" id="text-2-2-1">
 <p>
 软件应该是讲述软件的思路，然后再讲述各个部分。
@@ -368,8 +322,8 @@ for the JavaScript code in this tag.
 </div>
 </div>
 
-<div id="outline-container-orgc62c9b3" class="outline-4">
-<h4 id="orgc62c9b3"><span class="section-number-4">2.2.2</span> 流程图</h4>
+<div id="outline-container-org73e0c9d" class="outline-4">
+<h4 id="org73e0c9d"><span class="section-number-4">2.2.2.</span> 流程图</h4>
 <div class="outline-text-4" id="text-2-2-2">
 <p>
 流程图需要标准（开始与结束&#x2013;椭圆形，执行流程&#x2013;矩形）。word推荐visio。
@@ -377,8 +331,8 @@ for the JavaScript code in this tag.
 </div>
 </div>
 
-<div id="outline-container-org850bdb4" class="outline-4">
-<h4 id="org850bdb4"><span class="section-number-4">2.2.3</span> 中断</h4>
+<div id="outline-container-org476fc81" class="outline-4">
+<h4 id="org476fc81"><span class="section-number-4">2.2.3.</span> 中断</h4>
 <div class="outline-text-4" id="text-2-2-3">
 <p>
 需要突出中断的具体流程意义。
@@ -387,12 +341,12 @@ for the JavaScript code in this tag.
 </div>
 </div>
 
-<div id="outline-container-org9c8c990" class="outline-3">
-<h3 id="org9c8c990"><span class="section-number-3">2.3</span> 调试</h3>
+<div id="outline-container-orgd6a5ca1" class="outline-3">
+<h3 id="orgd6a5ca1"><span class="section-number-3">2.3.</span> 调试</h3>
 <div class="outline-text-3" id="text-2-3">
 </div>
-<div id="outline-container-org1a2e04e" class="outline-4">
-<h4 id="org1a2e04e"><span class="section-number-4">2.3.1</span> 效果对比</h4>
+<div id="outline-container-org68d1d0c" class="outline-4">
+<h4 id="org68d1d0c"><span class="section-number-4">2.3.1.</span> 效果对比</h4>
 <div class="outline-text-4" id="text-2-3-1">
 <p>
 最好是有标准的对比实验，比如测室温，应该需要一个温度计。将温度记的示数
@@ -401,8 +355,8 @@ for the JavaScript code in this tag.
 </div>
 </div>
 
-<div id="outline-container-org7b786c0" class="outline-4">
-<h4 id="org7b786c0"><span class="section-number-4">2.3.2</span> 调试环境</h4>
+<div id="outline-container-org64815bc" class="outline-4">
+<h4 id="org64815bc"><span class="section-number-4">2.3.2.</span> 调试环境</h4>
 <div class="outline-text-4" id="text-2-3-2">
 <p>
 使用的仪器和型号，软件平台。如果比较特殊需要加上天气、室温和时间等。
@@ -410,8 +364,8 @@ for the JavaScript code in this tag.
 </div>
 </div>
 
-<div id="outline-container-org7698e62" class="outline-4">
-<h4 id="org7698e62"><span class="section-number-4">2.3.3</span> 数据偏差大</h4>
+<div id="outline-container-org2ead1bd" class="outline-4">
+<h4 id="org2ead1bd"><span class="section-number-4">2.3.3.</span> 数据偏差大</h4>
 <div class="outline-text-4" id="text-2-3-3">
 <p>
 不应忽略或舍去较大的偏差数据，应该分析其出现的原因。
@@ -420,12 +374,12 @@ for the JavaScript code in this tag.
 </div>
 </div>
 
-<div id="outline-container-org5c2f106" class="outline-3">
-<h3 id="org5c2f106"><span class="section-number-3">2.4</span> 其他</h3>
+<div id="outline-container-org8b44b6a" class="outline-3">
+<h3 id="org8b44b6a"><span class="section-number-3">2.4.</span> 其他</h3>
 <div class="outline-text-3" id="text-2-4">
 </div>
-<div id="outline-container-org8b3bc66" class="outline-4">
-<h4 id="org8b3bc66"><span class="section-number-4">2.4.1</span> 模块或子单元命名</h4>
+<div id="outline-container-org8425653" class="outline-4">
+<h4 id="org8425653"><span class="section-number-4">2.4.1.</span> 模块或子单元命名</h4>
 <div class="outline-text-4" id="text-2-4-1">
 <p>
 命名不能太过随意，比如“主控电路”，显得低端、廉价。可以加上一些细节，如“电机测速系统
@@ -434,8 +388,8 @@ for the JavaScript code in this tag.
 </div>
 </div>
 
-<div id="outline-container-org3c38f88" class="outline-4">
-<h4 id="org3c38f88"><span class="section-number-4">2.4.2</span> 图与表的名字</h4>
+<div id="outline-container-orgf5aa381" class="outline-4">
+<h4 id="orgf5aa381"><span class="section-number-4">2.4.2.</span> 图与表的名字</h4>
 <div class="outline-text-4" id="text-2-4-2">
 <p>
 名字应该在图的下面，表的上面。同时命名应该为1.x.x的形式。
@@ -443,8 +397,8 @@ for the JavaScript code in this tag.
 </div>
 </div>
 
-<div id="outline-container-orga475f67" class="outline-4">
-<h4 id="orga475f67"><span class="section-number-4">2.4.3</span> 图片展示</h4>
+<div id="outline-container-orgf23fe3d" class="outline-4">
+<h4 id="orgf23fe3d"><span class="section-number-4">2.4.3.</span> 图片展示</h4>
 <div class="outline-text-4" id="text-2-4-3">
 <p>
 如果给出的图片所要指出的位置过小，可以用额外的文字或图形在图上标明。
@@ -452,8 +406,8 @@ for the JavaScript code in this tag.
 </div>
 </div>
 
-<div id="outline-container-org8582e06" class="outline-4">
-<h4 id="org8582e06"><span class="section-number-4">2.4.4</span> 图的叙述性文字</h4>
+<div id="outline-container-org2ac744c" class="outline-4">
+<h4 id="org2ac744c"><span class="section-number-4">2.4.4.</span> 图的叙述性文字</h4>
 <div class="outline-text-4" id="text-2-4-4">
 <p>
 如果是图的叙述性文字，最好是在图的下面。更加直观。
@@ -464,8 +418,8 @@ for the JavaScript code in this tag.
 </div>
 </div>
 <div id="postamble" class="status">
-<p class="date">Created: 2021-03-09 Tue 22:45</p>
-<p class="validation"><a href="http://validator.w3.org/check?uri=referer">Validate</a></p>
+<p class="date">Created: 2023-07-08 Sat 21:10</p>
+<p class="validation"><a href="https://validator.w3.org/check?uri=referer">Validate</a></p>
 </div>
 </body>
 </html>

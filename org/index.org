@@ -4,15 +4,20 @@
 #+SETUPFILE: ./sources/org-template/common.template
 
 * New
-- [[./article/0002-reply.org][项目答辩注意事项]]
 
-  项目答辩PPT制作，总结报告编写的一些需要注意的事项。
+** [[./article/aab_stdr_some-technical-document-reference.org][一些技术文档参考]]
+
+  项目答辩 PPT 制作，总结报告编写的一些需要注意的事项。
+
   
-- [[./article/0001-build-blog-by-emacs-and-github.org][使用Emacs与Github建博客]]
+** [[./article/aaa_bbbeag_build-blog-by-emacs-and-github.org][使用Emacs与Github建博客]]
 
-  通过 emacs ox-publish 与 github page结合建立简便、极少依赖、高度可定
+  通过 emacs ox-publish 与 github page 结合建立简便、极少依赖、高度可定
   制的的静态博客。
+  
 
 * Update
-- [[./article/0001-build-blog-by-emacs-and-github.org][使用Emacs与Github建博客]]
+ 
+** [[./article/aaa_bbbeag_build-blog-by-emacs-and-github.org][使用Emacs与Github建博客]]
+
   非UTF-8乱码修改
